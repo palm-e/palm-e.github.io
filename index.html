@@ -140,11 +140,8 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-By transferring knowledge from large, diverse, task-agnostic datasets, modern machine learning models can enable solving specific downstream tasks either zero-shot or with small task-specific datasets to a high level of performance. 
-While this capability has been demonstrated in other fields such as computer vision, natural language processing or speech recognition, it remains to be shown in robotics, where the generalization and fine-tuning capabilities of the models are particularly critical due to the difficulty of collecting real-world robotic data.
-We argue that one of the keys to the success of such general robotic models lies with open-ended task-agnostic training, combined with high-capacity architectures that can absorb all of the diverse, robotic data.
-In this paper, we present a model class, dubbed Robotics Transformer, that exhibits promising scalable, pre-trained model properties.
-We verify our conclusions in a comprehensive study of different model classes and their ability to generalize as a function of the data size, model size, and data diversity based on a large-scale data collection on real robots performing real-world tasks.
+The main contribution of this paper is an exploration of embodied language models.
+We train an embodied reasoning agent which maps multimodal observations to text, through a large language model, with one model trained across multiple embodied tasks (planning, visual question answering, affordance detection) on multiple embodiments.  As our model inherits from the large language model PaLM, but makes it Embodied, we call it PaLM-E.  We demonstrate that a single large embodied multimodal PaLM-E model can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits positive transfer: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains.  In addition to our focus of using PaLM-E as an embodied reasoner, we also describe various innovations that may be of interest in general multimodal learning: the use of neural scene representations as particularly effective input modalities, and text-labeling multimodal tokens for flexible multimodal-grounded textual reasoning.  These options are evaluated, in concert, with large-scale co-training on visual-language datasets.
                 </p>
             </div>
         </div>
@@ -157,19 +154,11 @@ We verify our conclusions in a comprehensive study of different model classes an
                 </h3>
 		<p class="text-justify">
         
-		Below, we show a few example videos showing how PaLM-SayCan-RT1 can be used to plan and execute ultra-long horizon tasks, with as many as 50 steps. 
-		The first task "Bring me the rice chips from the drawer" is executed in an office kitchen that the robot has never seen before.
+		We show a few example videos showing how PaLM-E can be used to plan and execute long horizon tasks on two different real embodiments. Please note, that all of these results were obtained using the same model trained on all data.
+		In the first video above the abstract, we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. <br><br>
+		Below, we show another example on the same robot where the instruction is "bring me a green star". Green star is an object that this robot wasn't directly exposed to.
 		</p>
-		<p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/meta/planning.mp4" type="video/mp4">
-                   </video>		
-        </p>
-		<p class="text-justify">
 
-         For the second task "Roses are red, violets are blue, bring me the rice chips from the drawer, and a napkin too." the execution 
-			and planning process are shown in the video below.
-		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
                        <source src="videos/meta/green_star.mp4" type="video/mp4">
@@ -177,40 +166,15 @@ We verify our conclusions in a comprehensive study of different model classes an
         </p>
         <p class="text-justify">
 
-         In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
+         In the next example, we show PaLM-E on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/green_blocks_to_turtle.mp4" type="video/mp4">
+                       <source src="videos/xarm/sort_by_color_iphone.mp4" type="video/mp4">
                    </video>		
         </p>
         
-        In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
-		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/ocean_colored_blocks_together.mp4" type="video/mp4">
-                   </video>		
-        </p>
-        
-        In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
-		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/red_blocks_to_coffee.mp4" type="video/mp4">
-                   </video>		
-        </p>
-        
-        
-        In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
-		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/remaining_blocks_to_group.mp4" type="video/mp4">
-                   </video>		
-        </p>
-        
-        In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
+        Here is another example of this tasks that involves planning over multiple stages and incorporating visual feedback over long time horizons.
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
@@ -218,11 +182,36 @@ We verify our conclusions in a comprehensive study of different model classes an
                    </video>		
         </p>
         
-        In the next example, we show SayCan is able to plan and execute a very long-horizon task involving 50+ steps.
+        Below, we demonstate two more examples of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/sort_by_color_iphone.mp4" type="video/mp4">
+                       <source src="videos/xarm/remaining_blocks_to_group.mp4" type="video/mp4">
+                   </video>		
+        </p>
+        
+        
+        Whereas in this video the instruction is: "push the ocean colored blocks together".
+		</p>
+        <p style="test-align:center;">
+					<video id="v0" width="100%" playsinline muted loop controls>
+                       <source src="videos/xarm/ocean_colored_blocks_together.mp4" type="video/mp4">
+                   </video>		
+        </p>
+        
+        Next, we demonstrate two examples of generalization. In the case below the instruction is "push red blocks to the coffee cup". The dataset contains only three demonstrations with the coffee cup in them, and none of them included red blocks.
+		</p>
+        <p style="test-align:center;">
+					<video id="v0" width="100%" playsinline muted loop controls>
+                       <source src="videos/xarm/red_blocks_to_coffee.mp4" type="video/mp4">
+                   </video>		
+        </p>
+        
+        Lastly, we show another generalization example, where the instruction is "push green blocks to the turtle". The robot is able to successfully execute this task even though it has never seen the turtle before.
+		</p>
+        <p style="test-align:center;">
+					<video id="v0" width="100%" playsinline muted loop controls>
+                       <source src="videos/xarm/green_blocks_to_turtle.mp4" type="video/mp4">
                    </video>		
         </p>
 	    </div>
