@@ -87,12 +87,7 @@
                 <li>under submission</li>
                 <br>
 		<br><br>
-		<!--
-                    <a href="http://g.co/robotics">
-                    <image src="img/rng-logo.png" height="37px"> </a>
-                    <a href="https://research.google/teams/brain/">   
-                    <image src="img/google-research-logo.png" height="25px"> </a> 
-                    -->
+	
                 </ul>
             </div>
         </div>
@@ -101,26 +96,7 @@
         <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center">
                     <ul class="nav nav-pills nav-justified">
-<!--
-                        <li>
-                            <a href="assets/rt1.pdf">
-                            <image src="img/paper_small2.png" height="60px">
-                                <h4><strong>Paper</strong></h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://youtu.be/UuKAp9a6wMs">
-                            <image src="img/youtube_icon.png" height="60px">
-                                <h4><strong>Video</strong></h4>
-                            </a>
-                        </li>
-                         <li>
-                            <a href="https://github.com/google-research/robotics_transformer">
-                            <image src="img/github.png" height="60px">
-                                <h4><strong>Code</strong></h4>
-                            </a>                   
-                        </li> 
--->
+
                     </ul>
                 </div>
         </div>
@@ -133,15 +109,15 @@
             <div class="col-md-8 col-md-offset-2">
                 <p style="text-align:center;">
         	    	<video id="v0" width="100%" playsinline autoplay muted loop controls>
-                       <source src="videos/meta/planning.mp4" type="video/mp4">
+                       <source src="videos/meta/planning-anon.mp4" type="video/mp4">
                    </video>
                 </p>
                 <h3>
                     Abstract
                 </h3>
                 <p class="text-justify">
-The main contribution of this paper is an exploration of embodied language models.
-We train an embodied reasoning agent which maps multimodal observations to text, through a large language model, with one model trained across multiple embodied tasks (planning, visual question answering, affordance detection) on multiple embodiments.  As our model inherits from the large language model PaLM, but makes it Embodied, we call it PaLM-E.  We demonstrate that a single large embodied multimodal PaLM-E model can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits positive transfer: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains.  In addition to our focus of using PaLM-E as an embodied reasoner, we also describe various innovations that may be of interest in general multimodal learning: the use of neural scene representations as particularly effective input modalities, and text-labeling multimodal tokens for flexible multimodal-grounded textual reasoning.  These options are evaluated, in concert, with large-scale co-training on visual-language datasets.
+                    Large language models have been demonstrated to perform complex tasks. However, enabling general inference in the real world, e.g. for robotics problems, raises the challenge of grounding, i.e., incorporating real-world sensor modalities as input to language models. We propose embodied language models to establish the link between words and percepts by directly incorporating continuous inputs from sensor modalities. Input to our embodied language model are multi-modal sentences that interleave, visual, continuous state estimation, and textual input encodings that are trained end-to-end, in conjunction with a pre-trained large language model, for multiple embodied tasks, including sequential robotic manipulation planning, visual question answering, and captioning.
+                    Our evaluations show that a single large embodied multimodal PaLM-E model can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits positive transfer: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains.
                 </p>
             </div>
         </div>
@@ -166,7 +142,7 @@ We train an embodied reasoning agent which maps multimodal observations to text,
         </p>
         <p class="text-justify">
 
-         In the next example, we show PaLM-E on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
+         In the next example, we show the exact same PaLM-E model weights on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
@@ -182,7 +158,7 @@ We train an embodied reasoning agent which maps multimodal observations to text,
                    </video>		
         </p>
         
-        Below, we demonstate two more examples of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".
+        Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green start", and "move the blue triangle to the group".
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
@@ -217,51 +193,7 @@ We train an embodied reasoning agent which maps multimodal observations to text,
 	    </div>
         </div>
             
-       
-<!--
-         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Citation 
-                </h3>
-                <div class="form-group col-md-10 col-md-offset-1">
-                    <textarea id="bibtex" class="form-control" readonly>
-@inproceedings{rt12022arxiv,
-    title={RT-1: Robotics Transformer for Real-World Control at Scale},
-    author={Anthony	Brohan and  Noah Brown and  Justice Carbajal and  Yevgen Chebotar and  Joseph Dabis and  Chelsea Finn and  Keerthana Gopalakrishnan and  Karol Hausman and  Alex Herzog and  Jasmine Hsu and  Julian Ibarz and  Brian Ichter and  Alex Irpan and  Tomas Jackson and  Sally Jesmonth and  Nikhil Joshi and  Ryan Julian and  Dmitry Kalashnikov and  Yuheng Kuang and  Isabel Leal and  Kuang-Huei Lee and  Sergey Levine and  Yao Lu and  Utsav Malla and  Deeksha Manjunath and  Igor Mordatch and  Ofir Nachum and  Carolina Parada and  Jodilyn Peralta and  Emily Perez and  Karl Pertsch and  Jornell Quiambao and  Kanishka Rao and  Michael Ryoo and  Grecia Salazar and  Pannag Sanketi and  Kevin Sayed and  Jaspiar Singh and  Sumedh Sontakke and  Austin Stone and  Clayton Tan and  Huong Tran and  Vincent Vanhoucke and Steve Vega and  Quan Vuong and  Fei Xia and  Ted Xiao and  Peng Xu and  Sichun Xu and  Tianhe Yu and  Brianna Zitkovich},
-    booktitle={arXiv preprint arXiv:2212.06817},
-    year={2022}
-}</textarea>
-                </div>
-            </div>
-             
-        </div>
-
-
-         <div class="row">
-            <div id="open-source" class="col-md-8 col-md-offset-2">
-                <h3>
-                    Open Source
-                </h3>
-              We open source the RT-1 model <a href="https://github.com/google-research/robotics_transformer">[here]. </a>
-              <p style="text-align:center;">
-                </p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Acknowledgements
-                </h3>
-                <p class="text-justify">
-The authors would like to acknowledge Aleksandra Faust, Andy Christiansen, Chuyuan Fu, Daniel Kappler, David Rendleman, Eric Jang, Jessica Gomez, Jessica Lin, Jie Tan, Josh Weaver, Justin Boyd, Krzysztof Choromanski, Matthew Bennice, Mengyuan Yan, Mrinal Kalakrishnan, Nik Stewart, Paul Wohlhart, Peter Pastor, Pierre Sermanet, Wenlong Lu, Zhen Yu Song, Zhuo Xu, and the greater teams at Robotics at Google and Everyday Robots for their feedback and contributions.
-                    <br><br>
-                The website template was borrowed from <a href="http://jonbarron.info/">Jon Barron</a>.
-                </p>
-            </div>
-        </div>
-            -->
+ 
     </div>
 </body>
 </html>
