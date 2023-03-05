@@ -103,11 +103,12 @@ function typeWriter(txt, i, q) {
 
 <body>
     <div class="container" id="main">
+        
         <div class="row">
-            <h2 class="col-md-12 text-center">
-                <strong><font size="+6">PaLM-E: An Embodied Multimodal Language Model</font></strong> 
-
-            </h2>
+            <p></p> <p></p>
+            <div class="col-md-12 text-center">
+                <strong><font size="+3">PaLM-E: An Embodied Multimodal Language Model</font></strong> 
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
@@ -171,8 +172,12 @@ function typeWriter(txt, i, q) {
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Large language models have been demonstrated to perform complex tasks. However, enabling general inference in the real world, e.g. for robotics problems, raises the challenge of grounding, i.e., incorporating real-world sensor modalities as input to language models. We propose embodied language models to establish the link between words and percepts by directly incorporating continuous inputs from sensor modalities. Input to our embodied language model are multi-modal sentences that interleave, visual, continuous state estimation, and textual input encodings that are trained end-to-end, in conjunction with a pre-trained large language model, for multiple embodied tasks, including sequential robotic manipulation planning, visual question answering, and captioning.
-                    Our evaluations show that a single large embodied multimodal PaLM-E model can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits positive transfer: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains.
+
+                    <p>
+                    Large language models have been demonstrated to perform complex tasks. However, enabling general inference in the real world, e.g. for robotics problems, raises the challenge of grounding. We propose embodied language models to directly incorporate real-world continuous sensor modalities into language models and thereby establish the link between words and percepts. Input to our embodied language model are multi-modal sentences that interleave visual, continuous state estimation, and textual input encodings. We train these encodings end-to-end, in conjunction with a pre-trained large language model, for multiple embodied tasks, including sequential robotic manipulation planning, visual question answering, and captioning.
+                    
+                    Our evaluations show that PaLM-E, a single large embodied multimodal model, can address a variety of embodied reasoning tasks, from a variety of observation modalities, on multiple embodiments, and further, exhibits <i>positive transfer</i>: the model benefits from diverse joint training across internet-scale language, vision, and visual-language domains.
+                    Our largest model, PaLM-E-562B with 562B parameters, in addition to being trained on robotics tasks, is a visual-language generalist with state-of-the-art performance on OK-VQA, and retains generalist language capabilities with increasing scale.
                 </p>
             </div>
         </div>
@@ -416,7 +421,6 @@ function typeWriter(txt, i, q) {
 }</textarea>
                 </div>
             </div>
-             
         </div>
 
 
@@ -426,7 +430,12 @@ function typeWriter(txt, i, q) {
                     Acknowledgements
                 </h3>
                 <p class="text-justify">
-                    We would like to acknowledge the greater teams at Robotics at Google for their feedback and contributions.
+                    The authors would like to thank, for their advice, help
+                    and support: Xi Chen, Etienne Pot, Sebastian Goodman,
+                    Ted Xiao, Keerthana Gopalakrishnan, Kehang Han, Henryk
+                    Michalewski, Neil Houlsby, Basil Mustafa, Justin Gilmer,
+                    Yonghui Wu, Erica Moreira, Victor Gomes, Tom Duerig,
+                    and Kendra Byrne.
                 </p>
             </div>
         </div>
