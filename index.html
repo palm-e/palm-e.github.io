@@ -149,6 +149,29 @@ function typeWriter(txt, i, q) {
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Approach
+                </h3>
+                <p style="text-align:center;">
+                    <img src="img/approach.png" class="img-responsive">
+                </p>
+
+                <p class="text-justify">
+                    The main architectural idea of PaLM-E is to inject continuous, embodied observations such as images, 
+                    state estimates, or other sensor modalities into the language embedding space of a pre-trained language model. 
+                    This is realized by encoding the continuous observations into a sequence of vectors with the same dimension 
+                    as the embedding space of the language tokens. The continuous information is hence injected into the language model 
+                    in an analogous way to language tokens. PaLM-E is a decoder-only LLM that generates textual completions 
+                    autoregressively given a prefix or prompt. We call our model PaLM-<b>E</b>, since we use <a href="https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html">PaLM (Chowdhery et al., 2022)</a> as 
+                    the pre-trained language model, and make it <b>E</b>mbodied.
+                </p>    
+            </div>
+        </div>
+
+
+
 
     <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -219,7 +242,6 @@ function typeWriter(txt, i, q) {
         </p>
 	    </div>
         </div>
-
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
