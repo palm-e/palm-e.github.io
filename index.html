@@ -47,6 +47,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
     
     <script src="js/app.js"></script>
+    <script>
+
+function myFunction(imgs) {
+    // Get the expanded image
+    var expandImg = document.getElementById("expandedImg");
+    // Get the image text
+    var imgText = document.getElementById("imgtext");
+    var answer = document.getElementById("answer");
+
+    // Use the same src in the expanded image as the image being clicked on from the grid
+    expandImg.src = imgs.src;
+    // Use the value of the alt attribute of the clickable image as text inside the expanded image
+    var qa = imgs.alt.split("[sep]");
+    imgText.innerHTML = qa[0];
+    answer.innerHTML = "";
+    // Show the container element (hidden with CSS)
+    expandImg.parentElement.style.display = "block";
+    typeWriter(qa[1], 0, qa[0]);
+    }
+
+function typeWriter(txt, i, q) {
+    var imgText = document.getElementById("imgtext");
+    if (imgText.innerHTML == q) {
+    if (i < txt.length) {
+        document.getElementById("answer").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, 20, txt, i, q);
+    }
+    }
+}
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
 <script>
@@ -101,10 +132,6 @@
                 </div>
         </div>
 
-
-   
-        
-
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <p style="text-align:center;">
@@ -123,7 +150,7 @@
         </div>
 
 
- <div class="row">
+    <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
                     Results
@@ -192,8 +219,53 @@
         </p>
 	    </div>
         </div>
-            
- 
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Demo
+                </h3>
+                <div class="row">
+                    <div class="col-md-2">
+                      <img src="img/demo_img/bike.png" width="100%" alt="Given <b>img</b>. Q: Can I go down this street on a bicycle, yes or no? A: Let's think step by step. [sep] 1. do not enter. 2. except bicycles. 3. do not enter except bicycles. 4. yes." onclick="myFunction(this);">
+                    </div>
+                    <div class="col-md-2">
+                      <img src="img/demo_img/donut.png" width="100%" alt="Given <b>img</b>. Q: What flavor is the pink doughnut on the right? A:[sep] strawberry.. Q: What flavor is the doughnut on the left? A blueberry. " onclick="myFunction(this);">
+                    </div>
+                    <div class="col-md-2">
+                      <img src="img/demo_img/darpa-robot.jpg" width="100%" alt="Given <b>img</b>. Q: What will the robot do next? A: [sep] fall." onclick="myFunction(this);">
+                    </div>
+                    <div class="col-md-2">
+                      <img src="img/demo_img/pokemon.png" width="100%" alt=" Q: Between <b>img</b> and <b>img</b>, who would win? A: Let's think step by step.[sep]1. Blastoise is a water type pokemon. 2. Charizard is a fire type pokemon. 3. Water is stronger than fire. 4. Blastoise is stronger than Charizard. 5. Blastoise wins. 6. The end." onclick="myFunction(this);">
+                    </div>
+                    <div class="col-md-2">
+                      <img src="img/demo_img/compare.png" width="100%" alt="Photo 1: <b>img</b>.  Photo 2: <b>img</b>.  Q: What is in Photo 1 but NOT in Photo 2? A: Let's think step by step and explain.[sep] Photo 1 has sunglasses on top of folded clothes. Photo 2 does not have sunglasses on top of folded clothes. Therefore, sunglasses are in Photo 1 but not in Photo 2." onclick="myFunction(this);">
+                    </div>
+                    <div class="col-md-2">
+                      <img src="img/demo_img/donkey.jpg" width="100%" alt="I see (image omitted). Description: A cow sitting on a rug. Joke: Why is the cow sitting on a rug? Because it wants to be a cow-ch!I see <b>img</b>.[sep] Description: a donkey is carrying a dog, cat, and rooster. Joke: what do you call a donkey with a rooster on his back. A rooster booster. "
+                       onclick="myFunction(this);">
+                    </div>
+                </div>
+                <p></p>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="expandedImg" style="width:100%">
+                    </div>
+                    <div class="col-md-6">
+                    <div id="imgtext"></div>
+                    <div><p style="test-align:center" id="answer"></p></div>
+                    </div>
+                    
+                </div>
+        
+            </div>
+        </div>
+    
     </div>
+
+   
+
 </body>
 </html>

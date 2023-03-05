@@ -10,6 +10,7 @@ $(document).ready(function() {
     });
     
 
+
 // var frameNumber = 0, // start video at frame 0
 //     // lower numbers = faster playback
 //     playbackConst = 500, 

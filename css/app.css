@@ -160,3 +160,12 @@ span.highlight {
 .img-responsive {
     margin: 0 auto;
 }
+
+#imgtext {
+  color: rgb(120, 120, 120);
+}
+
+#answer {
+  color: black;
+  background-color: #fce5cd;
+}
