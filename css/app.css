@@ -169,3 +169,16 @@ span.highlight {
   color: black;
   background-color: #fce5cd;
 }
+
+.carousel-indicators li {
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #404040;
+}
+
+.carousel .carousel-indicators button {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}

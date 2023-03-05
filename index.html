@@ -34,7 +34,7 @@
   <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
     <link rel="stylesheet" href="css/app.css">
@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
     
@@ -166,11 +166,7 @@ function typeWriter(txt, i, q) {
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <p style="text-align:center;">
-        	    	<video id="v0" width="100%" playsinline autoplay muted loop controls>
-                       <source src="videos/meta/planning.mp4" type="video/mp4">
-                   </video>
-                </p>
+               
                 <h3>
                     Abstract
                 </h3>
@@ -211,11 +207,17 @@ function typeWriter(txt, i, q) {
                     Results
                 </h3>
 		<p class="text-justify">
+        <p style="text-align:center;">
+            <video id="v0" width="100%" playsinline autoplay muted loop controls>
+                <source src="videos/meta/planning.mp4" type="video/mp4">
+            </video>
+        </p>
         
 		We show a few example videos showing how PaLM-E can be used to plan and execute long horizon tasks on two different real embodiments. Please note, that all of these results were obtained using the same model trained on all data.
-		In the first video above the abstract, we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. <br><br>
+		In the first video, we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. <br><br>
 		Below, we show another example on the same robot where the instruction is "bring me a green star". Green star is an object that this robot wasn't directly exposed to.
 		</p>
+        
 
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
@@ -225,53 +227,135 @@ function typeWriter(txt, i, q) {
         <p class="text-justify">
 
          In the next example, we show the exact same PaLM-E model weights on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
-		</p>
-        <p style="test-align:center;">
+         Here is another example of this tasks that involves planning over multiple stages and incorporating visual feedback over long time horizons.
+         Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green start", and "move the blue triangle to the group".
+         Whereas in this video the instruction is: "push the ocean colored blocks together".
+        </p>
+
+        <div id="carouselExampleCaptions" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/sort_by_color_iphone.mp4" type="video/mp4">
+                </video>		
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>sort blocks by colors into different corners</h5>
+                  <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/sort_colors_into_corners_long.mp4" type="video/mp4">
+                </video>	
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Incorporating visual feedback over long time horizons</h5>
+                  <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/remaining_blocks_to_group.mp4" type="video/mp4">
+                </video>		
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Move remaining blocks to the group</h5>
+                  <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/ocean_colored_blocks_together.mp4" type="video/mp4">
+                </video>		
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Push the ocean colored blocks together</h5>
+                  <!-- <p>Some representative placeholder content for the third slide.</p> -->
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" style="max-height:21%; margin-top:21%;" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" style="max-height:21%; margin-top:21%;" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+        <!-- <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
                        <source src="videos/xarm/sort_by_color_iphone.mp4" type="video/mp4">
                    </video>		
         </p>
         
-        Here is another example of this tasks that involves planning over multiple stages and incorporating visual feedback over long time horizons.
 		</p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
                        <source src="videos/xarm/sort_colors_into_corners_long.mp4" type="video/mp4">
                    </video>		
         </p>
-        
-        Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green start", and "move the blue triangle to the group".
-		</p>
+         -->
+		<!-- </p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
                        <source src="videos/xarm/remaining_blocks_to_group.mp4" type="video/mp4">
                    </video>		
-        </p>
-        
-        
-        Whereas in this video the instruction is: "push the ocean colored blocks together".
-		</p>
+        </p> -->
+		<!-- </p>
         <p style="test-align:center;">
 					<video id="v0" width="100%" playsinline muted loop controls>
                        <source src="videos/xarm/ocean_colored_blocks_together.mp4" type="video/mp4">
                    </video>		
-        </p>
+        </p> -->
         
+        <p>
         Next, we demonstrate two examples of generalization. In the case below the instruction is "push red blocks to the coffee cup". The dataset contains only three demonstrations with the coffee cup in them, and none of them included red blocks.
 		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/red_blocks_to_coffee.mp4" type="video/mp4">
-                   </video>		
-        </p>
-        
+ 
+        <p>
         Lastly, we show another generalization example, where the instruction is "push green blocks to the turtle". The robot is able to successfully execute this task even though it has never seen the turtle before.
 		</p>
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/xarm/green_blocks_to_turtle.mp4" type="video/mp4">
-                   </video>		
-        </p>
+
+        <div id="carouselExampleCaptions2" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/red_blocks_to_coffee.mp4" type="video/mp4">
+                </video>		
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Push red blocks to the coffee cup</h5>
+                  <!-- <p>Some representative placeholder content for the first slide.</p> -->
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="100000000000">
+                <video id="v0" width="100%" playsinline muted loop controls autoplay>
+                    <source src="videos/xarm/green_blocks_to_turtle.mp4" type="video/mp4">
+                </video>	
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Push green blocks to the turtle</h5>
+                  <!-- <p>Some representative placeholder content for the second slide.</p> -->
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" style="max-height:21%; margin-top:21%;" data-bs-target="#carouselExampleCaptions2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" style="max-height:21%; margin-top:21%;" data-bs-target="#carouselExampleCaptions2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
 	    </div>
         </div>
 
