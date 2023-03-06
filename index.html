@@ -240,7 +240,7 @@
                       </div>
                       <div class="carousel-item" data-bs-interval="100000000000">
                         <video id="v0" width="100%" playsinline muted loop controls autoplay>
-                            <source src="videos/meta/planning.mp4" type="video/mp4">
+                            <source src="videos/meta/planning_4x_compressed.mp4" type="video/mp4">
                         </video>	
                         <div class="carousel-caption d-none d-md-block">
                             <h5>"Bring me the rice chips from the drawer."</h5>
@@ -268,19 +268,6 @@
                   </div>
 
                   
-        <!-- <p class="text-justify">
-        <p style="text-align:center;">
-            <video id="v0" width="100%" playsinline autoplay muted loop controls>
-                <source src="videos/xarm/palm-e-loop-LT.mp4" type="video/mp4">
-            </video>
-        </p>
-
-        <p class="text-justify">
-        <p style="text-align:center;">
-            <video id="v0" width="100%" playsinline autoplay muted loop controls>
-                <source src="videos/meta/planning.mp4" type="video/mp4">
-            </video>
-        </p> -->
         
 		We show a few example videos showing how PaLM-E can be used to plan and execute long horizon tasks on two different real embodiments. Please note, that all of these results were obtained using the same model trained on all data.
 		In the first video, we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. <br><br>
@@ -297,7 +284,7 @@
 
          In the next example, we show the exact same PaLM-E model weights on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
          Here is another example of this tasks that involves planning over multiple stages and incorporating visual feedback over long time horizons.
-         Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green start", and "move the blue triangle to the group".
+         Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green star", and "move the blue triangle to the group".
          Whereas in this video the instruction is: "push the ocean colored blocks together".
         </p>
 
