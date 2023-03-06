@@ -82,6 +82,7 @@
             }
             }
         }
+
         </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
@@ -526,8 +527,20 @@
 
 
 
-
-
     </div>
+    <script>
+    const myCarousel = document.getElementById('carouselExampleCaptions')
+    myCarousel.addEventListener('slide.bs.carousel', event => {
+        myCarousel.getElementsByClassName("carousel-item")[event.from].getElementsByTagName("video")[0].pause();
+        myCarousel.getElementsByClassName("carousel-item")[event.to].getElementsByTagName("video")[0].play();
+    })
+
+    const myCarousel2 = document.getElementById('carouselExampleCaptions2')
+    myCarousel2.addEventListener('slide.bs.carousel', event => {
+        myCarousel2.getElementsByClassName("carousel-item")[event.from].getElementsByTagName("video")[0].pause();
+        myCarousel2.getElementsByClassName("carousel-item")[event.to].getElementsByTagName("video")[0].play();
+    })
+
+    </script>
 </body>
 </html>

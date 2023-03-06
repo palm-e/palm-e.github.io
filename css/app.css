@@ -170,15 +170,25 @@ span.highlight {
   background-color: #fce5cd;
 }
 
-.carousel-indicators li {
-  border-radius: 12px;
-  width: 12px;
-  height: 12px;
-  background-color: #404040;
-}
 
 .carousel .carousel-indicators button {
   border-radius: 50%;
   width: 12px;
   height: 12px;
+  margin-right: 3px;
+  margin-left: 3px;
 }
+
+.carousel-dark .carousel-control-next-icon, .carousel-dark .carousel-control-prev-icon {
+  filter: invert(0) grayscale(100);
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 100% 100%;
+}
+
