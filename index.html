@@ -49,35 +49,40 @@
     <script src="js/app.js"></script>
     <script>
 
-function myFunction(imgs) {
-    // Get the expanded image
-    var expandImg = document.getElementById("expandedImg");
-    // Get the image text
-    var imgText = document.getElementById("imgtext");
-    var answer = document.getElementById("answer");
-
-    // Use the same src in the expanded image as the image being clicked on from the grid
-    expandImg.src = imgs.src;
-    // Use the value of the alt attribute of the clickable image as text inside the expanded image
-    var qa = imgs.alt.split("[sep]");
-    imgText.innerHTML = qa[0];
-    answer.innerHTML = "";
-    // Show the container element (hidden with CSS)
-    expandImg.parentElement.style.display = "block";
-    typeWriter(qa[1], 0, qa[0]);
-    }
-
-function typeWriter(txt, i, q) {
-    var imgText = document.getElementById("imgtext");
-    if (imgText.innerHTML == q) {
-    if (i < txt.length) {
-        document.getElementById("answer").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, 20, txt, i, q);
-    }
-    }
-}
-</script>
+        timeoutIds = [];
+        
+        function myFunction(imgs) {
+            // Get the expanded image
+            var expandImg = document.getElementById("expandedImg");
+            // Get the image text
+            var imgText = document.getElementById("imgtext");
+            var answer = document.getElementById("answer");
+        
+            // Use the same src in the expanded image as the image being clicked on from the grid
+            expandImg.src = imgs.src;
+            // Use the value of the alt attribute of the clickable image as text inside the expanded image
+            var qa = imgs.alt.split("[sep]");
+            imgText.innerHTML = qa[0];
+            answer.innerHTML = "";
+            // Show the container element (hidden with CSS)
+            expandImg.parentElement.style.display = "block";
+            for (timeoutId of timeoutIds) {
+                clearTimeout(timeoutId);
+            }
+            typeWriter(qa[1], 0, qa[0]);
+            }
+        
+        function typeWriter(txt, i, q) {
+            var imgText = document.getElementById("imgtext");
+            if (imgText.innerHTML == q) {
+            if (i < txt.length) {
+                document.getElementById("answer").innerHTML += txt.charAt(i);
+                i++;
+                timeoutIds.push(setTimeout(typeWriter, 20, txt, i, q));
+            }
+            }
+        }
+        </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-52J0PM8XKV"></script>
 <script>
