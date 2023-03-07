@@ -220,6 +220,13 @@
                 <h3>
                     Results
                 </h3>
+
+        <p> 
+		We show a few example videos showing how PaLM-E can be used to plan and execute long horizon tasks on two different real embodiments. Please note, that all of these results were obtained using the same model trained on all data.
+		In the first video, we show PaLM-E controlling a table top robot arranging blocks. 
+        Next we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. 
+		Finally, show another example on the same robot where the instruction is "bring me a green star". Green star is an object that this robot wasn't directly exposed to.
+		</p>
 		
 
                 <div id="carouselExampleCaptions3" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
@@ -268,21 +275,12 @@
                   </div>
 
                   
+    
         
-		We show a few example videos showing how PaLM-E can be used to plan and execute long horizon tasks on two different real embodiments. Please note, that all of these results were obtained using the same model trained on all data.
-		In the first video, we execute a long-horizon instruction "bring me the rice chips from the drawer" that includes multiple planning steps as well as incorporating visual feedback from the robot's camera. <br><br>
-		We show another example on the same robot where the instruction is "bring me a green star". Green star is an object that this robot wasn't directly exposed to.
-		</p>
-        
-<!-- 
-        <p style="test-align:center;">
-					<video id="v0" width="100%" playsinline muted loop controls>
-                       <source src="videos/meta/green_star.mp4" type="video/mp4">
-                   </video>		
-        </p> -->
+        <p><br><br></p>
         <p class="text-justify">
 
-         In the next example, we show the exact same PaLM-E model weights on another robot embodiment. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
+         In the following part, we show the PaLM-E can successfully plan over multiple stages based on visual and language input. In this case our model is able to successfully plan a long-horizon task "sort blocks by colors into different corners" .
          Here is another example of this tasks that involves planning over multiple stages and incorporating visual feedback over long time horizons.
          Below, we demonstate another example of long-horizon pushing tasks on this robot. The first instruction is "move remaining blocks to the group".  PaLM-E sequences step-by-step commands to the low-level policy such as "move the yellow hexagon to the green star", and "move the blue triangle to the group".
          Whereas in this video the instruction is: "push the ocean colored blocks together".
@@ -369,12 +367,10 @@
                    </video>		
         </p> -->
         
+        <p><br><br></p>
         <p>
         Next, we demonstrate two examples of generalization. In the case below the instruction is "push red blocks to the coffee cup". The dataset contains only three demonstrations with the coffee cup in them, and none of them included red blocks.
-		</p>
- 
-        <p>
-        Lastly, we show another generalization example, where the instruction is "push green blocks to the turtle". The robot is able to successfully execute this task even though it has never seen the turtle before.
+		We show another generalization example, where the instruction is "push green blocks to the turtle". The robot is able to successfully execute this task even though it has never seen the turtle before.
 		</p>
 
         <div id="carouselExampleCaptions2" class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel">
